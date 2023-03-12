@@ -2,7 +2,33 @@ import React,{useState,useEffect,useRef} from 'react'
 import '../styles/App.css';
 const App = () => {
 
-//code here 
+   const emailRef=useRef();
+  const passwordRef=useRef();
+  const [formInput,setFormInput]=useState({
+    emailMsg:"",
+    passwordMMsg:"",
+  });
+  const handleInputChange=(e)=>{
+    e.persist();
+    if(e.target.id==="inputEmail"){
+      setFormInput((state)=>{
+        return{
+          ...state,["email"]:e.target.value,
+        };
+      });
+    }else{
+      setFormInput((state)=>{
+        return{
+          ...state,["password"]:e.target.value,
+        };
+      });
+    }
+  };
+  
+  
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if(formInput.email===""){
 
   return (
     <div id="main">
